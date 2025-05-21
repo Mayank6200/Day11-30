@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<p class="lead">Welcome to the Web App!</p>
+<form action="/greet/" method="get">
+    <div class="mb-3">
+        <input type="text" name="name" class="form-control w-50 mx-auto" placeholder="Enter your name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Greet Me</button>
+</form>
+{% endblock %}
+
