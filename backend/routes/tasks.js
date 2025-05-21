@@ -13,7 +13,9 @@ router.get('/', (req, res) => {
 // Add a task
 router.post('/', (req, res) => {
   const { description } = req.body;
-  db.query('INSERT INTO tasks (description, completed) VALUES (?, ?)', [description, false], (err) => {
+  if (!description || !description.trim()) return res.status(400).send('Description required');
+
+  db.query('INSERT INTO tasks (description, completed) VALUES (?, ?)', [description.trim(), false], (err) => {
     if (err) return res.status(500).send(err);
     res.sendStatus(201);
   });

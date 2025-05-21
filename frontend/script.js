@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/tasks';
+const API_URL = '/api/tasks';
 
 async function fetchTasks() {
   const res = await fetch(API_URL);
@@ -18,23 +18,24 @@ async function fetchTasks() {
 
 async function addTask() {
   const input = document.getElementById('taskInput');
+  if (!input.value.trim()) return;
   await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ description: input.value })
+    body: JSON.stringify({ description: input.value.trim() })
   });
   input.value = '';
-  fetchTasks();
+  await fetchTasks();
 }
 
 async function toggle(id) {
   await fetch(`${API_URL}/${id}`, { method: 'PUT' });
-  fetchTasks();
+  await fetchTasks();
 }
 
 async function remove(id) {
   await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-  fetchTasks();
+  await fetchTasks();
 }
 
 fetchTasks();

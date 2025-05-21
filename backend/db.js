@@ -1,5 +1,4 @@
-require('dotenv').config();  // ⬅️ This must be at the top
-
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
