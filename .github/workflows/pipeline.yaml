@@ -25,5 +25,8 @@ jobs:
                 node-version: '20.x'
         -   name: Install Dependencies
             run: npm install
+        -   name: Import schema
+            run: |
+                    mysql -h127.0.0.1 -uroot -padmin bookdb < setup.sql
         -   name: Running Backend
             run: node backend/server.js
