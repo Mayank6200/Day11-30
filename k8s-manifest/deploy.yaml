@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: greet-app
+  name: greet-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: greet-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: greet-app
+    spec:
+      containers:
+      - image: mareh786/flask-greet-app
+        name: greet-app
+        resources: {}
