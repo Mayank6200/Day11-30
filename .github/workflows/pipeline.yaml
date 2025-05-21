@@ -1,0 +1,16 @@
+name: CI-Pipeline
+on: workflow_dispatch
+jobs:
+    buildandTest:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout Repo
+            uses: actions/checkout@v3
+        -   name: Node setup
+            uses: actions/setup-node@v4
+            with:
+                node-version: '20.x'
+        -   name: Install Dependencies
+            run: npm install
+        -   name: Running Backend
+            run: node backend/server.js
