@@ -27,6 +27,6 @@ jobs:
             run: npm install
         -   name: Import schema
             run: |
-                    mysql -h127.0.0.1 -uroot -padmin bookdb < setup.sql
+                    mysql -h127.0.0.1 -uroot -padmin todo_db < setup.sql
         -   name: Running Backend
             run: node backend/server.js
