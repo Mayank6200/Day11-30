@@ -6,7 +6,7 @@ metadata:
     app: greet-app
   name: greet-app
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: greet-app
@@ -22,3 +22,4 @@ spec:
         name: greet-app
 
         resources: {}
+
